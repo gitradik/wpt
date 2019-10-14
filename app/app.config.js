@@ -1,8 +1,8 @@
-routes.$inject = ['$urlRouterProvider'];
+routes.$inject = ['$routeProvider'];
 
-export default function routes($urlRouterProvider) {
-    $urlRouterProvider.when('/', {
-        template: "<div>HELLO WORLD~!!!</div>"
-    });
-    $urlRouterProvider.otherwise('/');
+export default function routes($routeProvider) {
+    $routeProvider.when('/', {
+        template: '<div>HELLO WORLD~!!!</div>'
+    })
+        .otherwise('/');
 }

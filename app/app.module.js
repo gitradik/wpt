@@ -1,6 +1,6 @@
 import angular from 'angular';
-import uirouter from 'angular-ui-router'
 import routes from './app.config';
+import ngRoute from 'angular-route';
 
-angular.module('wptApp', [uirouter])
+angular.module('wptApp', [ngRoute])
     .config(routes);
