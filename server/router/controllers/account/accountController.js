@@ -1,12 +1,14 @@
-const db = require('../../../db/fireBase');
+const usersRef = require('../../../db/fireBase').collection('users');
 
 module.exports.createAccount = function (req, res, next) {
-    const usersRef = db.collection('users');
     usersRef.get()
         .then(documentSet => {
             documentSet.forEach(doc => {
-                console.log(doc.id, ' => ', doc.data());
-                res.send(doc.data());
+                const user = {
+                    id: doc.id,
+                    email: doc.data()['email'],
+                };
+                res.send(user);
             });
         })
         .catch(err => {
