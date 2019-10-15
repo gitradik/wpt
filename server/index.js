@@ -3,12 +3,14 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const router = require('./router');
+const errorHandler = require('./utils/errors/errorHandler');
 
-const a = require('./db/fireBase');
+require('./db/fireBase');
 
 app.use(cors());
 app.use(express.json());
 app.use(router);
+app.use(errorHandler);
 
 app.listen(PORT);
 

@@ -7,9 +7,7 @@ admin.initializeApp({
     databaseURL: "https://wptapp-6ba1d.firebaseio.com"
 });
 
-const db = admin.firestore();
-
-module.exports = db;
+module.exports = admin;
 
 
 

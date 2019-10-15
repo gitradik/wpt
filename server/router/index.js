@@ -4,6 +4,7 @@ const router = express.Router();
 const accountControllers = require('./controllers/account');
 const accountMiddleware = require('./middleware/account');
 
-router.get('/', accountControllers.createAccount);
+router.post('/createAccount', accountMiddleware.hashPassword, accountMiddleware.setToken, accountControllers.createAccount);
+router.get('/getAccount', accountMiddleware.verifyToken, accountControllers.getAccountByEmail);
 
 module.exports = router;

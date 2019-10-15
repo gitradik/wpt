@@ -1,0 +1,27 @@
+<style>
+    .spinner {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        background-color: rgba(0,0,0,.5);
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+    }
+</style>
+
+<div class="sign-up" ng-if="!$ctrl.isFetching">
+    {{ $ctrl.title }}
+
+    <input type="text" ng-model="$ctrl.email">
+    <input type="password" ng-model="$ctrl.password">
+
+    <button ng-click="$ctrl.onClick()">Submit</button>
+</div>
+
+<div class="spinner" ng-if="$ctrl.isFetching">
+   <div>Loading...</div>
+</div>

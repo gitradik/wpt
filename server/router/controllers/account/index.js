@@ -1,5 +1,9 @@
 const {
-    createAccount
+    createAccount,
+    getAccountByEmail,
 } = require('./accountController');
 
-module.exports = { createAccount };
+module.exports = {
+    createAccount,
+    getAccountByEmail,
+};
