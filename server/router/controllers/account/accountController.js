@@ -8,7 +8,7 @@ module.exports.createAccount = function (req, res, next) {
         const usersRef = ref.child("users");
         usersRef
             .push({ email, password })
-            .then(() => res.send({ email, token: req.headers.token }))
+            .then(() => res.send({ email, token: req.headers.access_token }))
             .catch(err => res.send(err));
     } catch (e) {
         next({ type: "account_data" });
@@ -26,11 +26,11 @@ module.exports.getAccountByEmail = function (req, res, next) {
                     const childData = childSnapshot.val();
                     res.send({
                         email: childData.email,
-                        access_token: req.headers.access_token,
+                        token: req.headers.access_token,
                     });
                 });
             });
     } catch (e) {
-
+        next({ type: "account_not_found" });
     }
 };
